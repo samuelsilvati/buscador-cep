@@ -1,18 +1,26 @@
-
-import './components/App.css';
+import { BsSearch } from "react-icons/bs";
+import "./components/App.css";
 
 function App() {
   return (
-    <div className='Container'>
-
-      <h1>TESTE</h1>
-      <div className='input'>
-        <input type="text" placeholder='Digite o cep'>
-        </input>
-          <button>
-            Buscar
-          </button>
+    <div className="container">
+      <h1>Buscador de CEP</h1>
+      <div className="input">
+        <input type="text" placeholder="Digite o cep"></input>
+        <button className="search">
+          <span>
+            <BsSearch size={25} color="#fff" />
+          </span>
+        </button>
       </div>
+
+      <main>
+        <h2> CEP: 35850-000</h2>
+        <span>Rua Uberlândia</span>
+        <span>Complemento: Apartamento</span>
+        <span>Bairro: Centro</span>
+        <span>Congonhas do Norte - MG</span>
+      </main>
     </div>
   );
 }
