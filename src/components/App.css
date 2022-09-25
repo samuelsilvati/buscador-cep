@@ -26,8 +26,8 @@ h1 {
 
 .input {
   background-color: #64658a;
-  padding: 15px;
-  margin: 34px 0;
+  padding: 9px;
+  margin-top: 34px;
   display: flex;
   border-radius: 2px;
 }
