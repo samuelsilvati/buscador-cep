@@ -55,6 +55,8 @@ button {
 }
 
 button span {
+  padding: 5px;
+  padding-left: 15px; 
   transition: 0.2s ease-in-out;
 }
 
