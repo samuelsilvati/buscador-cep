@@ -1,6 +1,7 @@
 import { BsSearch } from "react-icons/bs";
 import "./components/App.css";
 
+import api from './services/api.js';
 function App() {
   return (
     <div className="container">
