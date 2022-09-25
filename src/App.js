@@ -13,6 +13,10 @@ function App() {
           </span>
         </button>
       </div>
+      <div id="msgError">
+        <p>Preencha um CEP válido</p>
+      </div>
+      
 
       <main>
         <h2> CEP: 35850-000</h2>
