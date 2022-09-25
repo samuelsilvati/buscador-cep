@@ -5,10 +5,16 @@ import api from './services/api.js';
 function App() {
   return (
     <div className="container">
-      <h1>Buscador de CEP</h1>
+      <h1>Consultar CEP</h1>
       <div className="input">
-        <input type="text" placeholder="Digite o cep"></input>
-        <button className="search">
+        <input
+          type="text"
+          maxLength={8}
+          value={input}
+          onChange={(event) => setInput(event.target.value)}
+          placeholder="Digite o CEP"
+        ></input>
+        <button className="search" onClick={searchChar}>
           <span>
             <BsSearch size={25} color="#fff" />
           </span>
