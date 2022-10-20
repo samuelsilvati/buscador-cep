@@ -7,7 +7,9 @@ function App() {
 
   const[input, setInput] = useState('');
   const[cep, capCep ] = useState('');
-  
+  let complemento = cep.complemento;
+  !complemento ? complemento = "" : complemento = "Complemento:";
+
   async function searchChar(){
     const msgError = document.querySelector('#msgError');
     if(input === ''){
@@ -58,7 +60,7 @@ function App() {
         <main>
           <h2> CEP: {cep.cep}</h2>
           <span>{cep.logradouro}</span>
-          <span>Complemento: {cep.complemento}</span>
+          <span>{complemento} {cep.complemento}</span>
           <span>{cep.bairro}</span>
           <span>
             {cep.localidade} - {cep.uf}
