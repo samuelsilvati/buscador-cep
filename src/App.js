@@ -1,37 +1,40 @@
-import { useState } from 'react';
-import { BsSearch } from 'react-icons/bs';
+import { useState } from "react";
+import { BsSearch } from "react-icons/bs";
 import "./components/App.css";
 
-import api from './services/api.js';
+import api from "./services/api.js";
 function App() {
-
-  const[input, setInput] = useState('');
-  const[cep, capCep ] = useState('');
+  const [input, setInput] = useState("");
+  const [cep, capCep] = useState("");
   let complemento = cep.complemento;
-  !complemento ? complemento = "" : complemento = "Complemento:";
+  !complemento ? (complemento = "") : (complemento = "Complemento:");
 
-  async function searchChar(){
-    const msgError = document.querySelector('#msgError');
-    if(input === ''){
-        msgError.style.opacity = '1';
-        msgError.style.animation= '';
-        setTimeout(() => (msgError.style.animation = "flickr .1s ease"), 1);
-        return; 
+  const handleKeyPress = (event) => {
+    if (event.key === "Enter") {
+      searchChar();
     }
-    try{
+  };
+
+  async function searchChar() {
+    const msgError = document.querySelector("#msgError");
+    if (input === "") {
+      msgError.style.opacity = "1";
+      msgError.style.animation = "";
+      setTimeout(() => (msgError.style.animation = "flickr .1s ease"), 1);
+      return;
+    }
+    try {
       const response = await api.get(`${input}/json`);
       console.log(response.data);
-      capCep(response.data)
+      capCep(response.data);
       msgError.style.opacity = "0";
       setInput("");
-
-    }catch{
+    } catch {
       msgError.style.opacity = "1";
       msgError.style.animation = "";
       setTimeout(() => (msgError.style.animation = "flickr .1s ease"), 1);
       setInput("");
-      capCep("")
-
+      capCep("");
     }
   }
 
@@ -45,6 +48,7 @@ function App() {
           value={input}
           onChange={(event) => setInput(event.target.value)}
           placeholder="Digite o CEP"
+          onKeyDown={handleKeyPress}
         ></input>
         <button className="search" onClick={searchChar}>
           <span>
@@ -55,12 +59,14 @@ function App() {
       <div id="msgError">
         <p>Preencha um CEP válido</p>
       </div>
-      
+
       {Object.keys(cep).length > 0 && (
         <main>
           <h2> CEP: {cep.cep}</h2>
           <span>{cep.logradouro}</span>
-          <span>{complemento} {cep.complemento}</span>
+          <span>
+            {complemento} {cep.complemento}
+          </span>
           <span>{cep.bairro}</span>
           <span>
             {cep.localidade} - {cep.uf}
