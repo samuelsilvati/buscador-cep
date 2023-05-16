@@ -31,8 +31,9 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 O Buscador faz uso da API gratuita [Via Cep](https://viacep.com.br) para pesquisar o CEP desejado!
 
-Para executar o projeto na sua máquina, baixe ou clone o repositório e execute o comando:
+Para executar o projeto na sua máquina, baixe ou clone o repositório e execute os comandos:
 
+### `npm install`
 ### `npm start`
 
 Abra [http://localhost:3000](http://localhost:3000) em seu navegador.
